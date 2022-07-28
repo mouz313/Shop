@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\http\Controllers\CategoryController;
+use App\http\Controllers\BrandController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete'
 Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
 Route::get('/category/restore/{id}', [CategoryController::class, 'ReStore']);
 Route::get('/pdelete/category/{id}', [CategoryController::class, 'Pdelete']);
+
+
+//Brand Routes
+ 
+Route::get('brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
 
 
 Route::middleware([
