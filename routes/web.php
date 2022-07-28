@@ -20,11 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('category/all', [CategoryController::class, 'AllCat'])->name('all.category');
-
+Route::post('category/add', [CategoryController::class, 'AddCat'])->name('store.category');
 Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
+Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete']);
 Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
 
-Route::post('category/add', [CategoryController::class, 'AddCat'])->name('store.category');
 
 Route::middleware([
 'auth:sanctum',

@@ -52,7 +52,7 @@
                             </td>
                             <td>
                                 <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
-                                <a href="" class="btn btn-dark" >Delete</a>
+                                <a href="{{ url('softdelete/category/'.$category->id) }}" class="btn btn-dark" >Delete</a>
                             </td>
                       </tr>
                         @endforeach
@@ -86,4 +86,74 @@
         </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="col-md-8">
+        {{-- <div class="card">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{ session('success') }}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+                
+            @endif --}}
+            <div class="card-header">
+                Trash List
+            </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Srial No </th>
+            <th scope="col">Category Name </th>
+            <th scope="col">User Name</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{-- @php($i =1) --}}
+            @foreach ($trachCat as $category)
+            <tr>
+            {{-- <th scope="row">{{ $i++ }}</th> --}}
+            <th scope="row">{{ $categories->firstitem()+$loop->index }}</th>
+                <td>{{ $category->category_name }}</td>
+                <td>{{ $category->user->name }}</td>
+                <td>
+                    @if($category->created_at == Null)
+                    <span class="text-danger"> No Date Founded </span>
+                    @else
+                    {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                @endif
+                </td>
+                <td>
+                    <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
+                    <a href="" class="btn btn-dark" >Delete</a>
+                </td>
+          </tr>
+            @endforeach
+            
+                
+        
+        </tbody>
+      </table>
+      {{ $trachCat->links() }}
+    </div>
+</div>
+<div class="col-md-4">
+
+</div>
+</div>
+</div>
+
 </x-app-layout>
