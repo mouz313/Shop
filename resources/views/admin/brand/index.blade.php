@@ -69,7 +69,7 @@
                     <div class="card-header"> All brands
                     </div>
                     <div class="card-body">
-                    <form action=" " method="POST">
+                    <form action="{{ route('store.brand') }}" method="POST" enctype="/multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Brand Name</label>
@@ -83,7 +83,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Brand Image</label>
-                            <input type="file" name="brand_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                           @error('brand_image')
                               <span class="text-danger"> {{ $message }}</span>
                           @enderror
