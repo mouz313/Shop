@@ -15,9 +15,10 @@ class BrandController extends Controller
 
     public function StoreBrand(Request $request)
     {
+        
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:brands|min:4',
-            'brand_image' => 'required|mimes:jpg.jpeg,png',
+            'brand_image' => 'required|mimes:jpg.jpeg,png,gif'
         ],
         [
             'brand_name.required' => 'Please Enter the Brnad Name',
@@ -31,7 +32,7 @@ class BrandController extends Controller
         $img_name = $name_gen.'.'.$img_ext;
         $up_location = 'image/brand/';
         $last_img = $up_location.$img_name;
-        $brand_img->move($up_location,$img_name);
+        $brand_image->move($up_location,$img_name);
 
         Brand::insert([
             'brand_name' => $request->brand_name,
@@ -40,6 +41,4 @@ class BrandController extends Controller
         ]);
         return Redirect()->back()->with('Success','Brand Inserted Successfully');
     }
-
-
 }
