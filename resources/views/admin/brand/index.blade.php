@@ -52,7 +52,7 @@
                             </td>
                             <td>
                                 <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ url('brand/delete/'.$brand->id) }}" class="btn btn-dark" >Delete</a>
+                                <a href="{{ url('brand/delete/'.$brand->id) }}" Onclick="return Confirm('Are you sure to Delete')" class="btn btn-dark" >Delete</a>
                             </td>
                       </tr>
                         @endforeach

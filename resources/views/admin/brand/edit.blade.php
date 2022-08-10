@@ -14,13 +14,14 @@
         <div class="container">
             <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-4"> 
                 <div class="card">
                     <div class="card-header"> Edit Brand
                     </div>
                     <div class="card-body">
                     <form action="{{ url('/brand/update/'.$brands->id) }} " method="POST">
                         @csrf
+                        <input type="hidden" name="old_image" value="{{ $brands->brand_image }}">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Update Brand Name</label>
                           <input type="text" name="brand_name" value="{{ $brands->brand_name }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -37,10 +38,10 @@
                           @enderror
 
                           <div class="form-group">
-                            <img src="{{ asset($brands->brand_image) }}" style="width: 400px; height=200px;>
+                            <img src="{{ asset($brands->brand_image) }}" style="width: 400px; height=200px;">
                           </div>
-                          </div>
-                          <button type="submit" class="btn btn-primary">Update Brand</button>
+        
+                          <button type="submit" class="btn btn-primary"> Update Brand</button>
                       </form>
                     </div>
                 </div>

@@ -35,6 +35,14 @@ Route::get('/pdelete/category/{id}', [CategoryController::class, 'Pdelete']);
 Route::get('brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
 Route::post('brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
 Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
+Route::get('/brand/delete/{id}', [BrandController::class, 'DElete']);
+
+
+
+     //Multi Image Controller
+     Route::get('multi/image', [BrandController::class, 'Multipic'])->name('multi.image');
+     Route::post('multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 Route::middleware([
 'auth:sanctum',
