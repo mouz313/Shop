@@ -6,6 +6,7 @@ use App\Models\Multipic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Image;
+use Auth;
 
 class BrandController extends Controller
 {
@@ -132,5 +133,11 @@ class BrandController extends Controller
         ]);
     } //end of foreach
         return Redirect()->back()->with('Success','Brand Inserted Successfully');        
+    }
+
+    public function Logout()
+    {
+        Auth::logout();
+        return Redirect()->route('login')->with('success','Logout');
     }
 }
