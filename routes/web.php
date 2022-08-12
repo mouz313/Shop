@@ -16,6 +16,13 @@ use App\Models\User;
 |
 */
 
+//Email Verification Route
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+// -----------------------------------------
+
 Route::get('/', function () {
     return view('welcome');
 });
